@@ -89,8 +89,6 @@ function Signup() {
       navigate(-1);
     }
   }
-  // 회원가입을 완료하면 JSON파일에 저장
-  // 해당 아이디를 header에 이름 보이게 하기
 
   return (
     <Wrapper>
