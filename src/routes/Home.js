@@ -15,8 +15,7 @@ const Banner = styled(motion.div)`
   align-items: center;
   height: 100vh;
   overflow: hidden;
-  background-image: url(../src_assets/home_bg.png);
-  background-position: center center;
+  background: url("../src_assets/home_bg.png") center center;
   h2 {
     position: absolute;
     color: ${props => props.theme.white.lighter};
