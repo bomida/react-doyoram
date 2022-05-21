@@ -63,7 +63,7 @@ function Header({ cart }) {
   }, [cart, cartCount]);
   return (
     <Nav>
-      <Logo><Link to="/">DOYORAM</Link></Logo>
+      <Logo><Link to="/react-doyoram">DOYORAM</Link></Logo>
       <RightMenu>
         <li><Link to="signup">Signup</Link></li>
         <li><Link to="cart">Cart</Link></li>

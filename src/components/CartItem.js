@@ -63,7 +63,7 @@ const DeleteCircle = styled.div`
 `;
 
 function CartItem({ itemData, deleteItem, adjustItemQty }) {
-  const itemImgSrc = `./images/${itemData.imgUrl1}.jpg`;
+  // const itemImgSrc = `./images/${itemData.imgUrl1}.jpg`;
   const [input, setInput] = useState(itemData.qty);
   const onChangeHandler = (event) => {
     setInput(event.target.value);
@@ -76,7 +76,8 @@ function CartItem({ itemData, deleteItem, adjustItemQty }) {
         <input type="checkbox" />
       </CheckColumn>
       <ImgColumn>
-        <Img src={itemImgSrc} alt={itemData.title} />
+        <Img src={`${itemData.imgUrl1}`} alt={itemData.title} />
+        {/* <Img src={itemImgSrc} alt={itemData.title} /> */}
       </ImgColumn>
       <ProductInfo>
         <p>{itemData.title}</p>

@@ -3,6 +3,7 @@ import { motion, useViewportScroll, useAnimation, useTransform } from "framer-mo
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import Product from "../components/Product";
+import products from "../db/db";
 
 
 const Wrapper = styled.div`
@@ -15,7 +16,7 @@ const Banner = styled(motion.div)`
   align-items: center;
   height: 100vh;
   overflow: hidden;
-  background: url(./images/home_bg.png) center center;
+  background: url(../src_assets/home_bg.png) center center;
   h2 {
     position: absolute;
     color: ${props => props.theme.white.lighter};
@@ -218,7 +219,7 @@ function Home({ products }) {
       <BrandStroy>
         <StroyCover>
           <LeftImg>
-            <img src="./images/product_07_1.jpg" alt="brandstory_1" />
+            <img src={require('../src_assets/product_07_1.jpg')} alt="brandstory_1" />
           </LeftImg>
           <Col>
             <h4>Peanut plate & mug</h4>
@@ -231,7 +232,7 @@ function Home({ products }) {
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa tincidunt dui ut ornare lectus.<br /><br />Mattis vulputate enim nulla aliquet porttitor lacus luctus. Netus et malesuada fames ac turpis egestas integer eget aliquet.</p>
           </Col>
           <RightImg>
-            <img src="./images/product_04_1.jpg" alt="brandstory_2" />
+            <img src={require('../src_assets/product_04_1.jpg')} alt="brandstory_1" />
           </RightImg>
         </StroyCover>
       </BrandStroy>

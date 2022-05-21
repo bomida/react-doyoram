@@ -11,7 +11,7 @@ function Router() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/react-doyoram/" element={<Home />} />
         <Route path="cart" element={<Cart />} />
         <Route path="signup" element={<Signup />} />
       </Routes>

@@ -33,7 +33,7 @@ const ItemImg = styled.div`
 function Product({ product, addItem }) {
   return (
     <ItemCover key={product.title}>
-      <ItemImg bg={`./images/${product.imgUrl1}.jpg`} />
+      <ItemImg bg={`${product.imgUrl1}`} />
       <h4>{product.title}</h4>
       <p>{product.price.toLocaleString()} won</p>
       <button onClick={() => addItem(product.id)}>add cart</button>
