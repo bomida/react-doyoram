@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/react-doyoram/static/js/main.db7c5f3e.js",
+    "main.js": "/react-doyoram/static/js/main.a56494ca.js",
     "static/media/brandStory_1.jpg": "/react-doyoram/static/media/brandStory_1.dde7bf3199b6347ae9bc.jpg",
     "static/media/brandStory_2.jpg": "/react-doyoram/static/media/brandStory_2.9f1377bcaf80f15a7045.jpg",
     "index.html": "/react-doyoram/index.html",
-    "main.db7c5f3e.js.map": "/react-doyoram/static/js/main.db7c5f3e.js.map"
+    "main.a56494ca.js.map": "/react-doyoram/static/js/main.a56494ca.js.map"
   },
   "entrypoints": [
-    "static/js/main.db7c5f3e.js"
+    "static/js/main.a56494ca.js"
   ]
 }
