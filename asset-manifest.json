@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/react-doyoram/static/js/main.7f4ac395.js",
-    "static/media/product_07_1.jpg": "/react-doyoram/static/media/product_07_1.dde7bf3199b6347ae9bc.jpg",
-    "static/media/product_04_1.jpg": "/react-doyoram/static/media/product_04_1.9f1377bcaf80f15a7045.jpg",
+    "main.js": "/react-doyoram/static/js/main.db7c5f3e.js",
+    "static/media/brandStory_1.jpg": "/react-doyoram/static/media/brandStory_1.dde7bf3199b6347ae9bc.jpg",
+    "static/media/brandStory_2.jpg": "/react-doyoram/static/media/brandStory_2.9f1377bcaf80f15a7045.jpg",
     "index.html": "/react-doyoram/index.html",
-    "main.7f4ac395.js.map": "/react-doyoram/static/js/main.7f4ac395.js.map"
+    "main.db7c5f3e.js.map": "/react-doyoram/static/js/main.db7c5f3e.js.map"
   },
   "entrypoints": [
-    "static/js/main.7f4ac395.js"
+    "static/js/main.db7c5f3e.js"
   ]
 }
