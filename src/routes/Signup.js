@@ -9,14 +9,14 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.4) 100%), url(./images/login_bg.jpg);
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.4) 100%), url(../src_assets/login_bg.jpg);
   background-size: cover;
 `;
 
 const FormCover = styled.div`
-  margin-top: 30px;
+  margin-top: 100px;
   h3 {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     font-size: 40px;
     font-weight: 700;
     text-align: center;
