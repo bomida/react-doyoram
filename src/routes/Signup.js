@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import { useRef } from 'react';
+import signUpBg from "../images/signUp_bg.jpg"
 
 const Wrapper = styled.div`
   display: flex;
@@ -9,12 +10,12 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.4) 100%), url("../images/login_bg.jpg");
+  background-image: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.4) 100%), url(${signUpBg});
   background-size: cover;
 `;
 
 const FormCover = styled.div`
-  margin-top: 100px;
+  margin-top: 60px;
   h3 {
     margin-bottom: 50px;
     font-size: 40px;

@@ -3,6 +3,7 @@ import { motion, useViewportScroll, useAnimation, useTransform } from "framer-mo
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import Product from "../components/Product";
+import homeBg from "../images/home_bg.png";
 
 
 const Wrapper = styled.div`
@@ -15,7 +16,7 @@ const Banner = styled(motion.div)`
   align-items: center;
   height: 100vh;
   overflow: hidden;
-  background: url("../images/home_bg.png") center center;
+  background: url(${homeBg}) center center;
   h2 {
     position: absolute;
     color: ${props => props.theme.white.lighter};
@@ -196,6 +197,7 @@ function Home({ products }) {
         >
           we bake<br />dishes
         </motion.h2>
+        {/* <img src={require('../images/home_bg.png')} alt="home_bg" /> */}
       </Banner>
       <CategoryCover>
         <Title>New Arrivals</Title>
