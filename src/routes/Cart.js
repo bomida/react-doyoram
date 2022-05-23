@@ -126,7 +126,6 @@ function Cart({ cart }) {
       items += item.qty;
       price += item.qty * item.price;
     });
-    console.log(cart)
 
     setTotalItems(items);
     setTotalPrice(price);

@@ -23,7 +23,7 @@ const cartReducer = (state = INITIAL_STATE, action) => {
               ? { ...item, qty: +action.payload.qty + 1 }
               : item
           )
-          : [...state.cart, { ...item, qty: 1 }],
+          : [...state.cart, { ...item, qty: +action.payload.qty }],
       };
     case actionType.DELETE_ITEM:
       return {
