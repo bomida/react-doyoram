@@ -1,36 +1,42 @@
-# react-Doyoram-shoppingmall
+# Doyoram-shoppingmall
 
 <br>
 
 ## 소개
-리액트를 이용해 쇼핑몰을 제작하고, 리덕스로 장바구니 기능을 구현하였습니다.<br/>
+리액트와 리덕스를 이용한 쇼핑몰을 제작하였습니다.<br/>
 그리고 react hook form으로 회원가입 폼을 만들었습니다.
 
 <br>
 
 ## 최종 결과물
 ### Home
-<img width="640" alt="Home" src="https://user-images.githubusercontent.com/93115007/168476772-f09a6283-7b96-45ae-8f4e-b2ab514dfded.png">
+<img width="640" alt="Home" src="https://user-images.githubusercontent.com/93115007/169842895-6490c674-c41c-4cc1-91a4-f79caab22dca.png">
 
 ### Product List - New Arrivals
-<img width="640" alt="ProductList1" src="https://user-images.githubusercontent.com/93115007/168476782-2cacd01d-220d-454d-b073-172afe0844e2.png">
+<img width="640" alt="ProductList1" src="https://user-images.githubusercontent.com/93115007/169842928-8a5e0353-b12e-4322-a0c1-e5f1eec7feae.png">
 
 ### Product List - Best Sellers
-<img width="640" alt="ProductList2" src="https://user-images.githubusercontent.com/93115007/168476784-4bf37b60-2f40-4649-9852-569bc1051310.png">
+<img width="640" alt="ProductList2" src="https://user-images.githubusercontent.com/93115007/169842940-f97ec439-70b1-4943-b782-72d7bf942ba0.png">
+
+### Product Detail
+<img width="640" alt="ProductDetail" src="https://user-images.githubusercontent.com/93115007/169842960-8028fcf1-c952-429d-b923-ac8a307e5981.png">
 
 ### Cart
-<img width="640" alt="Cart" src="https://user-images.githubusercontent.com/93115007/168476785-4d8f70ae-b00e-48d6-899a-2a691c65ced0.png">
+<img width="640" alt="Cart" src="https://user-images.githubusercontent.com/93115007/169842966-7f0b31e7-4313-486a-ab2d-b0bc79cd7dc2.png">
 
-### Login
-<img width="640" alt="Login" src="https://user-images.githubusercontent.com/93115007/168476786-37519515-fd58-4289-99a3-6f50ba5a3150.png">
+### Sign Up
+<img width="640" alt="Login" src="https://user-images.githubusercontent.com/93115007/169842946-fdc62c54-8120-4dd2-a7c4-54e6b65ad826.png">
 
 
 <br>
 
 ## 구현 기능
-  - 스크롤 시 Banner의 배경과 타이틀의 위치가 동적으로 움직입니다.
+  - 스크롤 시 Banner의 배경과 타이틀이 동적으로 움직입니다.
   - db 파일로 부터 저장된 제품의 정보를 가져와 제품 목록을 보여줍니다.
-  - 리덕스를 이용해 add Item을 클릭 시 상품을 장바구니에 추가하고, header에 상품이 몇개가 담겨있는지 뱃지에 갯수를 보여줍니다.
+  - 리덕스를 이용해 add cart를 클릭 시 상품을 장바구니에 추가하고,<br/>
+  header에 cart에 담겨있는 상품의 갯수를 보여줍니다.
+  - 상품을 클릭 시 상품 상세 페이지로 이동하여, 해당 상품의 정보를 가져와 화면에 보여주었습니다.
+  - 상세 페이지에서 수량을 변경하면 총 금액과 총 갯수가 보여지고, 변경한 갯수 만큼 카트에 담을 수 있습니다.
   - Cart 페이지에서 추가된 상품의 디테일을 확인할 수 있고, 담은 상품을 삭제하거나 수량을 수정할 수 있고, 총 합산 금액을 보여줍니다.
   - 회원가입 폼을 만들어 정보를 입력하면 유효성 검사를 하고, 모두 통과가 되면 이전 화면으로 돌아가게되고, 오류가 있다면 해당 오류 메시지를 보여주도록 합니다.
 
@@ -78,3 +84,4 @@
 ## 레퍼런스
   - [react hook form](https://react-hook-form.com/kr/advanced-usage/)
   - [리덕스 장바구니 기능 구현](https://tobegood.tistory.com/entry/43-44일차-React-상태관리-Redux)
+  - [DOYORAM 이미지 출처](https://www.doyoramseoul.co.kr)

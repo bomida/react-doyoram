@@ -96,6 +96,7 @@ function Detail({ products, addItem }) {
   }
 
   const handleAddItem = () => addItem(productItem.id, +input);
+  console.log(typeof (+input))
 
   useEffect(() => {
     let itemQty = input;
