@@ -1,16 +1,18 @@
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { addItem } from "../redux/cart/cartAction";
+import { Link } from "react-router-dom";
 
 const ItemCover = styled.div`
   color: ${props => props.theme.black.darker};
   h4 {
+    font-family: 'Bodoni Moda';
     font-size: 18px;
-    margin-bottom: 10px;
+    font-weight: 700;
   }
   p {
     font-size: 15px;
-    margin-bottom: 10px;
+    margin: 10px 0;
   }
   button {
     all: unset;
@@ -32,9 +34,11 @@ const ItemImg = styled.div`
 
 function Product({ product, addItem }) {
   return (
-    <ItemCover key={product.title}>
-      <ItemImg bg={`${product.imgUrl1}`} />
-      <h4>{product.title}</h4>
+    <ItemCover key={product.id}>
+      <Link to={`/react-doyoram/${product.id}`}>
+        <ItemImg bg={`${product.imgUrl1}`} />
+        <h4>{product.title}</h4>
+      </Link>
       <p>{product.price.toLocaleString()} won</p>
       <button onClick={() => addItem(product.id)}>add cart</button>
     </ItemCover>

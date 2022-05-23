@@ -179,7 +179,7 @@ function Cart({ cart }) {
           </TotalPrice>
         </OrderTotal>
         <OrderBtnContainer>
-          <button onClick={handleBuy}>BUY</button>
+          <button onClick={handleBuy}>ORDER</button>
         </OrderBtnContainer>
       </ListContainer>
     </Wrapper>

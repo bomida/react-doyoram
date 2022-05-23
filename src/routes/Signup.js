@@ -18,6 +18,7 @@ const FormCover = styled.div`
   margin-top: 60px;
   h3 {
     margin-bottom: 50px;
+    font-family: 'Bodoni Moda';
     font-size: 40px;
     font-weight: 700;
     text-align: center;
@@ -46,14 +47,15 @@ const Form = styled.form`
 `;
 
 const Title = styled.h4`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
+  color: ${props => props.theme.black.normal};
 `;
 
 const Input = styled.input`
   display: inline-block;
   width: 300px;
-  margin: 15px 0 20px;
+  margin: 10px 0 20px;
   padding: 7px;
   text-align: center;
   border-radius: 20px;

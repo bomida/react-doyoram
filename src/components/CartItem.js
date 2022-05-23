@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { adjustItemQty, deleteItem } from "../redux/cart/cartAction";
 import DeleteIcon from "./DeleteIcon";
@@ -64,10 +65,17 @@ const DeleteCircle = styled.div`
 
 function CartItem({ itemData, deleteItem, adjustItemQty }) {
   const [input, setInput] = useState(itemData.qty);
+  const [totalPrice, setTotalPrice] = useState(itemData.price);
+
   const onChangeHandler = (event) => {
     setInput(event.target.value);
     adjustItemQty(itemData.id, event.target.value);
   };
+
+  useEffect(() => {
+    let itemQty = input;
+    setTotalPrice(() => itemData.price * itemQty);
+  }, [input, setTotalPrice, itemData.price]);
 
   return (
     <Item>
@@ -78,11 +86,11 @@ function CartItem({ itemData, deleteItem, adjustItemQty }) {
         <Img src={`${itemData.imgUrl1}`} alt={itemData.title} />
       </ImgColumn>
       <ProductInfo>
-        <p>{itemData.title}</p>
+        <p><Link to={`/react-doyoram/${itemData.id}`}>{itemData.title}</Link></p>
         <p>{itemData.price.toLocaleString()} won</p>
       </ProductInfo>
       <td>
-        <label htmlFor="qty">Qty</label>
+        <label htmlFor="qty">수량</label>
         <Qty
           min="1"
           id="qty"
@@ -92,7 +100,7 @@ function CartItem({ itemData, deleteItem, adjustItemQty }) {
           onChange={onChangeHandler}
         />
       </td>
-      <td>{itemData.price.toLocaleString()} won</td>
+      <td>{totalPrice.toLocaleString()} won</td>
       <td>
         <DeleteCircle onClick={() => deleteItem(itemData.id)}>
           <DeleteIcon />

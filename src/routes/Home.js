@@ -20,6 +20,7 @@ const Banner = styled(motion.div)`
   h2 {
     position: absolute;
     color: ${props => props.theme.white.lighter};
+    font-family: 'Bodoni Moda';
     font-size: 100px;
     text-align: center;
     font-weight: 700;
@@ -28,7 +29,7 @@ const Banner = styled(motion.div)`
   }
 `;
 
-const CategoryCover = styled.div`
+const SessionCover = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -58,6 +59,7 @@ const TitleCover = styled.div`
 
 const Title = styled.h2`
   color: ${props => props.theme.main};
+  font-family: 'Bodoni Moda';
   font-size: 40px;
   font-weight: 700;
   text-align: center;
@@ -105,6 +107,7 @@ const Col = styled.div`
   padding: 0 40px;
   color: ${props => props.theme.black.darker};
   h4 {
+    font-family: 'Bodoni Moda';
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 30px;
@@ -197,17 +200,16 @@ function Home({ products }) {
         >
           we bake<br />dishes
         </motion.h2>
-        {/* <img src={require('../images/home_bg.png')} alt="home_bg" /> */}
       </Banner>
-      <CategoryCover>
+      <SessionCover>
         <Title>New Arrivals</Title>
         <NewArrivals>
           {products.slice(0, 3).map(product =>
             <Product key={product.title} product={product} />
           )}
         </NewArrivals>
-      </CategoryCover>
-      <CategoryCover>
+      </SessionCover>
+      <SessionCover>
         <BestSellers>
           <TitleCover>
             <Title style={{ transform: "rotate(-90deg)" }}>Best Sellers</Title>
@@ -216,7 +218,7 @@ function Home({ products }) {
             <Product key={product.title} product={product} />
           )}
         </BestSellers>
-      </CategoryCover>
+      </SessionCover>
       <BrandStroy>
         <StroyCover>
           <LeftImg>

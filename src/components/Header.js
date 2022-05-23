@@ -18,6 +18,7 @@ const Nav = styled.header`
 const Logo = styled.h1`
   width: 100%;
   color: ${props => props.theme.main};
+  font-family: 'Bodoni Moda';
   font-size: 20px;
   font-weight: 600;
   text-align: center;
@@ -44,6 +45,7 @@ const CartNumber = styled.span`
   margin-left: 5px;
   padding: 4px;
   color: ${props => props.theme.white.lighter};
+  font-family: 'Bodoni Moda';
   font-size: 14px;
   text-align: center;
   font-weight: 600;

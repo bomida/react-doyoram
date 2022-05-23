@@ -7,6 +7,7 @@ export const theme = {
   },
   black: {
     lighter: "#C4C4C4",
+    normal: "#555555",
     darker: "#222222"
   },
 }

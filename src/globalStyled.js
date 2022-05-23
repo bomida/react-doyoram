@@ -7,7 +7,7 @@ const GlobalStyled = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    font-family: 'Bodoni Moda', serif;
+    font-family: sans-serif;
     color: ${props => props.theme.black.darker};
   }
   a {

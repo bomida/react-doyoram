@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Detail from "./components/Detail";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Cart from "./routes/Cart";
@@ -12,6 +13,7 @@ function Router() {
       <Header />
       <Routes>
         <Route path="/react-doyoram/" element={<Home />} />
+        <Route path="/react-doyoram/:productId" element={<Detail />} />
         <Route path="cart" element={<Cart />} />
         <Route path="signup" element={<Signup />} />
       </Routes>
