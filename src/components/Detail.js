@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { products } from "../db/db";
-import { adjustItemQty } from "../redux/cart/cartAction";
+import { addItem, adjustItemQty } from "../redux/cart/cartAction";
 
 const Wrapper = styled.div`
   max-width: 1096px;
@@ -83,16 +82,25 @@ const OrderBtnContainer = styled.div`
   }
 `;
 
-function Detail() {
+function Detail({ products }) {
   const { productId } = useParams();
   const productItem = products.find(product => {
     return productId === product.id;
   });
+
   const [input, setInput] = useState(1);
+  const [newPrice, setNewPrice] = useState(productItem.price);
   const onChangeHandler = event => {
     setInput(event.target.value);
     adjustItemQty(productId, event.target.value);
   }
+
+  const handleAddItem = () => addItem(productItem.id);
+
+  useEffect(() => {
+    let itemQty = input;
+    setNewPrice(() => productItem.price * itemQty);
+  }, [input, setNewPrice, productItem.price]);
 
   return (
     <Wrapper>
@@ -114,7 +122,7 @@ function Detail() {
           <ResultContainer>
             <Result>
               <span>Total Price</span>
-              <span>30,000 won</span>
+              <span>{newPrice.toLocaleString()} won</span>
             </Result>
             <Result>
               <span>Total Item</span>
@@ -122,7 +130,7 @@ function Detail() {
             </Result>
           </ResultContainer>
           <OrderBtnContainer>
-            <button>add cart</button>
+            <button onClick={handleAddItem}>add cart</button>
             <button>order</button>
           </OrderBtnContainer>
         </TextInfo>
@@ -131,10 +139,15 @@ function Detail() {
   );
 }
 
+const mapStateToProps = ({ shop }) => {
+  return { products: shop.products }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
+    addItem: id => dispatch(addItem(id)),
     adjustItemQty: (id, value) => dispatch(adjustItemQty(id, value))
   }
 }
 
-export default connect(null, mapDispatchToProps)(Detail);
+export default connect(mapStateToProps, mapDispatchToProps)(Detail);

@@ -18,6 +18,7 @@ const ListContainer = styled.div`
 
 const Title = styled.h3`
   margin-bottom: 40px;
+  font-family: 'Bodoni Moda';
   font-size: 40px;
   font-weight: 700;
   text-align: center;
@@ -149,7 +150,7 @@ function Cart({ cart }) {
                 <input type="checkbox" />
               </td>
               <td>
-                <span>전체 선택 0/{totalItems}</span>
+                <span>전체 선택 0/{cart.length}</span>
               </td>
               <td>
                 <span>상품정보</span>
@@ -169,7 +170,7 @@ function Cart({ cart }) {
         </CartTable>
         <OrderTotal>
           <CheckContainer>
-            <SelectCount>전체선택 0/{totalItems}</SelectCount>
+            <SelectCount>전체선택 0/{cart.length}</SelectCount>
             <CancleBtn>선택 취소</CancleBtn>
           </CheckContainer>
           <TotalPrice>

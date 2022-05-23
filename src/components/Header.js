@@ -57,12 +57,8 @@ function Header({ cart }) {
   const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
-    let count = 0;
-    cart.forEach(item => {
-      count += item.qty
-    })
-    setCartCount(count)
-  }, [cart, cartCount]);
+    setCartCount(cart.length);
+  }, [cart, setCartCount]);
   return (
     <Nav>
       <Logo><Link to="/react-doyoram">DOYORAM</Link></Logo>

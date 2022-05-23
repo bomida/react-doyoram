@@ -33,6 +33,8 @@ const ItemImg = styled.div`
 `;
 
 function Product({ product, addItem }) {
+  const handleAddItem = () => addItem(product.id);
+
   return (
     <ItemCover key={product.id}>
       <Link to={`/react-doyoram/${product.id}`}>
@@ -40,14 +42,14 @@ function Product({ product, addItem }) {
         <h4>{product.title}</h4>
       </Link>
       <p>{product.price.toLocaleString()} won</p>
-      <button onClick={() => addItem(product.id)}>add cart</button>
+      <button onClick={handleAddItem}>add cart</button>
     </ItemCover>
   );
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    addItem: (id) => dispatch(addItem(id))
+    addItem: id => dispatch(addItem(id))
   }
 }
 

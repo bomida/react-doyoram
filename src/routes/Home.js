@@ -205,7 +205,7 @@ function Home({ products }) {
         <Title>New Arrivals</Title>
         <NewArrivals>
           {products.slice(0, 3).map(product =>
-            <Product key={product.title} product={product} />
+            <Product key={product.id} product={product} />
           )}
         </NewArrivals>
       </SessionCover>
@@ -215,7 +215,7 @@ function Home({ products }) {
             <Title style={{ transform: "rotate(-90deg)" }}>Best Sellers</Title>
           </TitleCover>
           {products.slice(3, 6).map(product =>
-            <Product key={product.title} product={product} />
+            <Product key={product.id} product={product} />
           )}
         </BestSellers>
       </SessionCover>
@@ -243,8 +243,8 @@ function Home({ products }) {
   );
 }
 
-const mapStateToProps = state => {
-  return { products: state.shop.products }
+const mapStateToProps = ({ shop }) => {
+  return { products: shop.products }
 }
 
 export default connect(mapStateToProps)(Home);
