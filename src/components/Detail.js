@@ -82,7 +82,7 @@ const OrderBtnContainer = styled.div`
   }
 `;
 
-function Detail({ products }) {
+function Detail({ products, addItem }) {
   const { productId } = useParams();
   const productItem = products.find(product => {
     return productId === product.id;
@@ -95,7 +95,7 @@ function Detail({ products }) {
     adjustItemQty(productId, event.target.value);
   }
 
-  const handleAddItem = () => addItem(productItem.id);
+  const handleAddItem = () => addItem(productItem.id, +input);
 
   useEffect(() => {
     let itemQty = input;
@@ -145,7 +145,7 @@ const mapStateToProps = ({ shop }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addItem: id => dispatch(addItem(id)),
+    addItem: (id, qty) => dispatch(addItem(id, qty)),
     adjustItemQty: (id, value) => dispatch(adjustItemQty(id, value))
   }
 }

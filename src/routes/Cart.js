@@ -126,6 +126,7 @@ function Cart({ cart }) {
       items += item.qty;
       price += item.qty * item.price;
     });
+    console.log(cart)
 
     setTotalItems(items);
     setTotalPrice(price);
@@ -187,9 +188,9 @@ function Cart({ cart }) {
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ shop }) => {
   return {
-    cart: state.shop.cart,
+    cart: shop.cart,
   }
 }
 

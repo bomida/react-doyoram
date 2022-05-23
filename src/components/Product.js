@@ -33,7 +33,7 @@ const ItemImg = styled.div`
 `;
 
 function Product({ product, addItem }) {
-  const handleAddItem = () => addItem(product.id);
+  const handleAddItem = () => addItem(product.id, 1);
 
   return (
     <ItemCover key={product.id}>
@@ -49,7 +49,7 @@ function Product({ product, addItem }) {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addItem: id => dispatch(addItem(id))
+    addItem: (id, qty) => dispatch(addItem(id, qty))
   }
 }
 
