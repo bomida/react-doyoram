@@ -13,7 +13,7 @@ const IconWrap = styled.div`
     left: 0;
     right: 0;
     margin: auto;
-    background-color: ${props => props.theme.black.lighter};
+    background-color: ${props => props.theme.color.black.lighter};
   }
 `;
 

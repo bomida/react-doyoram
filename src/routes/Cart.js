@@ -12,13 +12,13 @@ const ListContainer = styled.div`
   width: 1096px;
   margin: 160px auto 0;
   tr:last-of-type {
-    border-bottom: 1px solid ${props => props.theme.black.darker};
+    border-bottom: 1px solid ${props => props.theme.color.black.darker};
   }
 `;
 
 const Title = styled.h3`
   margin-bottom: 40px;
-  font-family: 'Bodoni Moda';
+  font-family: ${props => props.theme.font.family.serif};
   font-size: 40px;
   font-weight: 700;
   text-align: center;
@@ -26,12 +26,12 @@ const Title = styled.h3`
 
 const CartTable = styled.table`
   width: 100%;
-  border-bottom: 1px solid ${props => props.theme.black.darker};
+  border-bottom: 1px solid ${props => props.theme.color.black.darker};
 `;
 
 const CartHeader = styled.tr`
   height: 40px;
-  border-bottom: 1px solid ${props => props.theme.black.darker};
+  border-bottom: 1px solid ${props => props.theme.color.black.darker};
   td {
     vertical-align: middle;
     text-align: center;
@@ -64,12 +64,12 @@ const CancleBtn = styled.button`
   width: 110px;
   height: 40px;
   margin-left: 40px;
-  color: ${props => props.theme.white.lighter};
+  color: ${props => props.theme.color.white.lighter};
   font-weight: bold;
   font-size: 15px;
   text-align: center;
   border-radius: 10px;
-  background: ${props => props.theme.black.darker};
+  background: ${props => props.theme.color.black.darker};
   transition: all 0.2s ease-in;
     &:hover {
       border-radius: 30px;
@@ -82,7 +82,7 @@ const TotalPrice = styled.div`
   align-items: center;
   width: 480px;
   padding: 0 40px 0 51px;
-  border-bottom: 1px solid ${props => props.theme.black.darker};
+  border-bottom: 1px solid ${props => props.theme.color.black.darker};
   span {
     &:first-of-type {
       font-size: 15px;
@@ -102,13 +102,13 @@ const OrderBtnContainer = styled.div`
     margin: 20px auto 0;
     padding: 12px 30px;
     cursor: pointer;
-    color: ${props => props.theme.main};
-    border: 1px solid ${props => props.theme.main};
+    color: ${props => props.theme.color.main};
+    border: 1px solid ${props => props.theme.color.main};
     border-radius: 10px;
     transition: all 0.2s ease-in;
     &:hover {
-      color: ${props => props.theme.white.darker};
-      background-color: ${props => props.theme.main};
+      color: ${props => props.theme.color.white.darker};
+      background-color: ${props => props.theme.color.main};
       border-radius: 30px;
     }
   }

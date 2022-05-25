@@ -7,8 +7,10 @@ const GlobalStyled = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    font-family: sans-serif;
-    color: ${props => props.theme.black.darker};
+    font-family: ${props => props.theme.font.family.sansSerif};
+    font-size: ${props => props.theme.font.size.base};
+    font-weight: bold;
+    color: ${props => props.theme.color.black.darker};
   }
   a {
     color: inherit;

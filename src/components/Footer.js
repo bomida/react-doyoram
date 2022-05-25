@@ -4,7 +4,7 @@ import styled from "styled-components";
 const FooterWrap = styled.footer`
   width: 100%;
   padding: 80px 60px;
-  background-color: ${props => props.theme.white.darker};
+  background-color: ${props => props.theme.color.white.darker};
   p {
     font-size: 13px;
     line-height: 1.5;

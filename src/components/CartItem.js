@@ -8,7 +8,7 @@ import DeleteIcon from "./DeleteIcon";
 const Item = styled.tr`
   width: 100%;
   height: 90px;
-  border-bottom: 1px solid ${props => props.theme.black.darker};
+  border-bottom: 1px solid ${props => props.theme.color.black.darker};
   td {
     vertical-align: middle;
     text-align: center;
@@ -34,7 +34,7 @@ const Img = styled.img`
 const ProductInfo = styled.td`
   p {
     padding-left: 30px;
-    color: ${props => props.theme.black.darker};
+    color: ${props => props.theme.color.black.darker};
     text-align: left;
     &:first-of-type {
       margin-bottom: 8px;
@@ -59,7 +59,7 @@ const DeleteCircle = styled.div`
   width: 25px;
   height: 25px;
   cursor: pointer;
-  border: 1px solid ${props => props.theme.black.lighter};
+  border: 1px solid ${props => props.theme.color.black.lighter};
   border-radius: 50%;
 `;
 

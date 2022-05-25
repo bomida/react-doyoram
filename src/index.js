@@ -6,11 +6,12 @@ import App from './App';
 import GlobalStyled from './globalStyled';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import media from './media';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={{ ...theme, ...media }}>
         <GlobalStyled />
         <App />
       </ThemeProvider>

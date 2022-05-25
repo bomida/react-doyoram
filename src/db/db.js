@@ -56,3 +56,16 @@ export const products = [
     imgUrl2: "https://contents.sixshop.com/thumbnails/uploadedFiles/92233/product/image_1592819807440_1000.jpeg"
   },
 ];
+
+export const brandStory = [
+  {
+    imgUrl: 1,
+    title: "Peanut plate & mug",
+    overview: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa tincidunt dui ut ornare lectus. Mattis vulputate enim nulla aliquet porttitor lacus luctus. Netus et malesuada fames ac turpis egestas integer eget aliquet.",
+  },
+  {
+    imgUrl: 2,
+    title: "Stone Incense Holder",
+    overview: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa tincidunt dui ut ornare lectus. Mattis vulputate enim nulla aliquet porttitor lacus luctus. Netus et malesuada fames ac turpis egestas integer eget aliquet.",
+  },
+];

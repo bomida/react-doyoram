@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import Product from "../components/Product";
 import homeBg from "../images/home_bg.png";
+import { brandStory } from "../db/db";
+import BrandStory from "../components/BrandStory";
 
 
 const Wrapper = styled.div`
@@ -19,103 +21,77 @@ const Banner = styled(motion.div)`
   background: url(${homeBg}) center center;
   h2 {
     position: absolute;
-    color: ${props => props.theme.white.lighter};
-    font-family: 'Bodoni Moda';
-    font-size: 100px;
+    color: ${props => props.theme.color.white.lighter};
+    font-family: ${props => props.theme.font.family.serif};
+    font-size: ${props => props.theme.font.size.banner};
     text-align: center;
     font-weight: 700;
     text-transform: uppercase;
     line-height: 1.2;
   }
+  ${({ theme }) => theme.mobile`
+    h2{
+      font-size: ${props => props.theme.font.size.title};
+    }
+  `};
 `;
 
 const SessionCover = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 160px;
+  padding: 160px 40px 0;
+  ${({ theme }) => theme.tablet`
+    padding: 100px 40px 0;
+  `};
+  ${({ theme }) => theme.mobile`
+    padding: 60px 20px 0;
+  `};
 `;
 
 const NewArrivals = styled.div`
   display: grid;
   gap: 0 20px;
   grid-template-columns: repeat(3, 1fr);
-  width: 1096px;
+  max-width: 1024px;
+  width: 100%;
   margin-top: 40px;
+
+  ${({ theme }) => theme.mobile`
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px 0;
+  `};
 `;
 
 const BestSellers = styled.div`
   display: grid;
   gap: 0 20px;
   grid-template-columns: repeat(4, 1fr);
-  width: 1096px;
+  max-width: 1024px;
+  width: 100%;
+  ${({ theme }) => theme.mobile`
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px 0;
+  `};
 `;
 
 const TitleCover = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: rotate(-90deg);
+  ${({ theme }) => theme.mobile`
+      display: block;
+      transform: rotate(0deg);
+  `};
 `;
 
 const Title = styled.h2`
-  color: ${props => props.theme.main};
-  font-family: 'Bodoni Moda';
-  font-size: 40px;
+  color: ${props => props.theme.color.main};
+  font-family: ${props => props.theme.font.family.serif};
+  font-size: ${props => props.theme.font.size.title};
   font-weight: 700;
   text-align: center;
-`;
-
-const BrandStroy = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 160px;
-`;
-
-const StroyCover = styled.div`
-  display: flex;
-  align-items: center;
-  width: 1096px;
-  margin-bottom: 60px;
-  div {
-    width: 50%;
-    height: 450px;
-    overflow: hidden;
-    img {
-      width: 100%;
-      transition: 0.5s ease-in-out;
-    }
-    &:hover img{
-      transform: scale(1.05);
-    }
-  }
-`;
-
-const LeftImg = styled.div`
-  border-top-right-radius: 100px;
-`;
-
-const RightImg = styled.div`
-  border-top-left-radius: 100px;
-`;
-
-const Col = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 50%;
-  padding: 0 40px;
-  color: ${props => props.theme.black.darker};
-  h4 {
-    font-family: 'Bodoni Moda';
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 30px;
-  }
-  p {
-    font-size: 15px;
-    line-height: 1.3;
-  }
 `;
 
 const ToTheTop = styled(motion.span)`
@@ -123,14 +99,14 @@ const ToTheTop = styled(motion.span)`
   right: 60px;
   bottom: 60px;
   z-index: 1;
-  width: 50px;
-  height: 50px;
-  padding: 16px 0;
+  width: 46px;
+  height: 46px;
+  padding: 14px 0;
   cursor: pointer;
-  font-size: 14px;
+  font-size: ${props => props.theme.font.size.sm};
   text-align: center;
   border-radius: 50%;
-  border: 1px solid ${props => props.theme.black.lighter};
+  border: 1px solid ${props => props.theme.color.black.lighter};
   background-color: rgba(255, 255, 255, 0.5);
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
 `;
@@ -212,33 +188,18 @@ function Home({ products }) {
       <SessionCover>
         <BestSellers>
           <TitleCover>
-            <Title style={{ transform: "rotate(-90deg)" }}>Best Sellers</Title>
+            <Title>Best Sellers</Title>
           </TitleCover>
           {products.slice(3, 6).map(product =>
             <Product key={product.id} product={product} />
           )}
         </BestSellers>
       </SessionCover>
-      <BrandStroy>
-        <StroyCover>
-          <LeftImg>
-            <img src={require('../images/brandStory_1.jpg')} alt="brandstory_1" />
-          </LeftImg>
-          <Col>
-            <h4>Peanut plate & mug</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa tincidunt dui ut ornare lectus.<br /><br />Mattis vulputate enim nulla aliquet porttitor lacus luctus. Netus et malesuada fames ac turpis egestas integer eget aliquet.</p>
-          </Col>
-        </StroyCover>
-        <StroyCover>
-          <Col>
-            <h4>Stone Incense Holder</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa tincidunt dui ut ornare lectus.<br /><br />Mattis vulputate enim nulla aliquet porttitor lacus luctus. Netus et malesuada fames ac turpis egestas integer eget aliquet.</p>
-          </Col>
-          <RightImg>
-            <img src={require('../images/brandStory_2.jpg')} alt="brandstory_1" />
-          </RightImg>
-        </StroyCover>
-      </BrandStroy>
+      <SessionCover>
+        {brandStory.map(story =>
+          <BrandStory key={story.imgUrl} story={story} />
+        )}
+      </SessionCover>
     </Wrapper>
   );
 }

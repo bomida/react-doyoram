@@ -25,7 +25,7 @@ const Thumbnail = styled.div`
 `;
 
 const TextInfo = styled.div`
-  color: ${props => props.theme.black.darker};
+  color: ${props => props.theme.color.black.darker};
 `;
 
 const Title = styled.h3`
@@ -40,25 +40,25 @@ const Price = styled.p`
 `;
 
 const OverView = styled.p`
-  color: ${props => props.theme.black.normal};
+  color: ${props => props.theme.color.black.normal};
 `;
 
 const Qty = styled.input`
   width: 40px;
   margin: 30px 5px;
-  color: ${props => props.theme.black.normal};
+  color: ${props => props.theme.color.black.normal};
 `;
 
 const ResultContainer = styled.div`
   padding-top: 30px;
-  border-top: 1px solid ${props => props.theme.black.lighter};
+  border-top: 1px solid ${props => props.theme.color.black.lighter};
 `;
 
 const Result = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
-  color: ${props => props.theme.black.normal};
+  color: ${props => props.theme.color.black.normal};
 `;
 
 const OrderBtnContainer = styled.div`
@@ -72,8 +72,8 @@ const OrderBtnContainer = styled.div`
     padding: 12px 30px;
     text-align: center;
     cursor: pointer;
-    color: ${props => props.theme.white.lighter};
-    background-color: ${props => props.theme.black.normal};
+    color: ${props => props.theme.color.white.lighter};
+    background-color: ${props => props.theme.color.black.normal};
     border-radius: 10px;
     transition: all 0.2s ease-in;
     &:hover {

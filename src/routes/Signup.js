@@ -18,7 +18,7 @@ const FormCover = styled.div`
   margin-top: 60px;
   h3 {
     margin-bottom: 50px;
-    font-family: 'Bodoni Moda';
+    font-family: ${props => props.theme.font.family.serif};
     font-size: 40px;
     font-weight: 700;
     text-align: center;
@@ -33,23 +33,23 @@ const Form = styled.form`
     margin: 30px auto 0;
     padding: 12px 30px;
     cursor: pointer;
-    color: ${props => props.theme.white.lighter};
-    border: 1px solid ${props => props.theme.white.lighter};
+    color: ${props => props.theme.color.white.lighter};
+    border: 1px solid ${props => props.theme.color.white.lighter};
     border-radius: 10px;
     transition: all 0.2s ease-in;
     &:hover {
-      color: ${props => props.theme.white.darker};
-      border: 1px solid ${props => props.theme.main};
-      background-color: ${props => props.theme.main};
+      color: ${props => props.theme.color.white.darker};
+      border: 1px solid ${props => props.theme.color.main};
+      background-color: ${props => props.theme.color.main};
       border-radius: 30px;
     }
   }
 `;
 
 const Title = styled.h4`
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
-  color: ${props => props.theme.black.normal};
+  color: ${props => props.theme.color.black.normal};
 `;
 
 const Input = styled.input`
@@ -59,19 +59,19 @@ const Input = styled.input`
   padding: 7px;
   text-align: center;
   border-radius: 20px;
-  border: 1px solid ${props => props.theme.white.darker};
+  border: 1px solid ${props => props.theme.color.white.darker};
   background-color: rgba(255, 255, 255, 0.4);
   transition: all 0.2s ease-in;
   :focus {
     outline: none;
-    border: 1px solid ${props => props.theme.main};
+    border: 1px solid ${props => props.theme.color.main};
   }
 `;
 
 const WarningMsg = styled.p`
-  font-size: 14px;
+  font-size: 13px;
   padding: 7px;
-  color: ${props => props.theme.white.lighter};
+  color: ${props => props.theme.color.white.lighter};
   border-radius: 30px;
   background-color: rgba(34, 34, 34, 0.4);
 `;

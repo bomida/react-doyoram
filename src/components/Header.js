@@ -11,14 +11,14 @@ const Nav = styled.header`
   z-index: 10;
   width: 100%;
   padding: 20px 60px;
-  background-color: ${props => props.theme.white.lighter};
+  background-color: ${props => props.theme.color.white.lighter};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 `;
 
 const Logo = styled.h1`
   width: 100%;
-  color: ${props => props.theme.main};
-  font-family: 'Bodoni Moda';
+  color: ${props => props.theme.color.main};
+  font-family: ${props => props.theme.font.family.serif};
   font-size: 20px;
   font-weight: 600;
   text-align: center;
@@ -34,23 +34,23 @@ const RightMenu = styled.ul`
     font-size: 15px;
     transition: 0.2s ease-in;
     &:hover {
-      color: ${props => props.theme.main};
+      color: ${props => props.theme.color.main};
     }
   }
 `;
 
 const CartNumber = styled.span`
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   margin-left: 5px;
   padding: 4px;
-  color: ${props => props.theme.white.lighter};
-  font-family: 'Bodoni Moda';
-  font-size: 14px;
+  color: ${props => props.theme.color.white.lighter};
+  font-family: ${props => props.theme.font.family.serif};
+  font-size: 13px;
   text-align: center;
   font-weight: 600;
   border-radius: 50%;
-  background-color: ${props => props.theme.main};
+  background-color: ${props => props.theme.color.main};
 `;
 
 function Header({ cart }) {

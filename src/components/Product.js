@@ -4,9 +4,9 @@ import { addItem } from "../redux/cart/cartAction";
 import { Link } from "react-router-dom";
 
 const ItemCover = styled.div`
-  color: ${props => props.theme.black.darker};
+  color: ${props => props.theme.color.black.darker};
   h4 {
-    font-family: 'Bodoni Moda';
+    font-family: ${props => props.theme.font.family.serif};
     font-size: 18px;
     font-weight: 700;
   }
