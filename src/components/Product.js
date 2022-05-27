@@ -6,9 +6,10 @@ import { Link } from "react-router-dom";
 const ItemCover = styled.div`
   color: ${props => props.theme.color.black.darker};
   h4 {
-    font-family: ${props => props.theme.font.family.serif};
-    font-size: 18px;
-    font-weight: 700;
+    font-family: ${props => props.theme.font.family.sanSerif};
+    font-size: ${props => props.theme.font.size.lg};
+    font-weight: bold;
+    line-height: 1.3;
   }
   p {
     font-size: 15px;
@@ -18,6 +19,12 @@ const ItemCover = styled.div`
     all: unset;
     cursor: pointer;
   }
+
+  ${({ theme }) => theme.tablet`
+    h4{
+      font-size: ${props => props.theme.font.size.base};
+    }
+  `};
 `;
 
 const ItemImg = styled.div`

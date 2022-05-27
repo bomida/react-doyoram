@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import Product from "../components/Product";
 import homeBg from "../images/home_bg.png";
 import { brandStory } from "../db/db";
-import BrandStory from "../components/BrandStory";
 
 
 const Wrapper = styled.div`
@@ -29,21 +28,24 @@ const Banner = styled(motion.div)`
     text-transform: uppercase;
     line-height: 1.2;
   }
+
   ${({ theme }) => theme.mobile`
-    h2{
+    h2 {
       font-size: ${props => props.theme.font.size.title};
     }
   `};
 `;
 
-const SessionCover = styled.div`
+const SectionCover = styled.section`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 160px 40px 0;
+  padding: 120px 40px 0;
+
   ${({ theme }) => theme.tablet`
-    padding: 100px 40px 0;
+    padding: 80px 40px 0;
   `};
+
   ${({ theme }) => theme.mobile`
     padding: 60px 20px 0;
   `};
@@ -51,38 +53,58 @@ const SessionCover = styled.div`
 
 const NewArrivals = styled.div`
   display: grid;
-  gap: 0 20px;
   grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   max-width: 1024px;
   width: 100%;
-  margin-top: 40px;
+  margin-top: 60px;
+
+  ${({ theme }) => theme.tablet`
+    grid-template-columns: repeat(1, 1fr);
+    gap: 60px;
+  `};
 
   ${({ theme }) => theme.mobile`
     grid-template-columns: repeat(1, 1fr);
-    gap: 40px 0;
+    margin-top: 40px;
   `};
 `;
 
 const BestSellers = styled.div`
   display: grid;
-  gap: 0 20px;
   grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
   max-width: 1024px;
   width: 100%;
-  ${({ theme }) => theme.mobile`
+
+  ${({ theme }) => theme.tablet`
     grid-template-columns: repeat(1, 1fr);
-    gap: 40px 0;
+    gap: 60px;
+    `};
+
+  ${({ theme }) => theme.mobile`
+    gap: 40px;
+    grid-template-columns: repeat(1, 1fr);
   `};
 `;
 
-const TitleCover = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: rotate(-90deg);
+const BrandStory = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  max-width: 1024px;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 100px;
+
+  ${({ theme }) => theme.tablet`
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 80px;
+  `};
+
   ${({ theme }) => theme.mobile`
-      display: block;
-      transform: rotate(0deg);
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 60px;
   `};
 `;
 
@@ -92,6 +114,60 @@ const Title = styled.h2`
   font-size: ${props => props.theme.font.size.title};
   font-weight: 700;
   text-align: center;
+
+  ${({ theme }) => theme.mobile`
+    font-size: ${props => props.theme.font.size.xl};
+  `};
+`;
+
+const TitleCover = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(-90deg);
+
+  ${({ theme }) => theme.tablet`
+    grid-template-columns: repeat(1, 1fr);
+    transform: rotate(0deg);
+  `};
+`;
+
+const StoryImg = styled.div`
+  overflow: hidden;
+  aspect-ratio: 1/0.95;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+    img {
+      width: 100%;
+      transition: 0.5s ease-in-out;
+    }
+    &:hover img{
+      transform: scale(1.05);
+    }
+`;
+
+const Col = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  color: ${props => props.theme.color.black.darker};
+  h4 {
+    font-family: ${props => props.theme.font.family.serif};
+    font-size: ${props => props.theme.font.size.xl};
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+  p {
+    line-height: 1.5;
+  }
+
+  ${({ theme }) => theme.tablet`
+    display: block;
+    h4 {
+      margin-bottom: 30px;
+    }
+  `};
 `;
 
 const ToTheTop = styled(motion.span)`
@@ -107,8 +183,13 @@ const ToTheTop = styled(motion.span)`
   text-align: center;
   border-radius: 50%;
   border: 1px solid ${props => props.theme.color.black.lighter};
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  
+  ${({ theme }) => theme.mobile`
+    right: 30px;
+    bottom: 30px;
+  `};
 `;
 
 const showUp = {
@@ -177,15 +258,15 @@ function Home({ products }) {
           we bake<br />dishes
         </motion.h2>
       </Banner>
-      <SessionCover>
+      <SectionCover>
         <Title>New Arrivals</Title>
         <NewArrivals>
           {products.slice(0, 3).map(product =>
             <Product key={product.id} product={product} />
           )}
         </NewArrivals>
-      </SessionCover>
-      <SessionCover>
+      </SectionCover>
+      <SectionCover>
         <BestSellers>
           <TitleCover>
             <Title>Best Sellers</Title>
@@ -194,12 +275,20 @@ function Home({ products }) {
             <Product key={product.id} product={product} />
           )}
         </BestSellers>
-      </SessionCover>
-      <SessionCover>
+      </SectionCover>
+      <SectionCover>
         {brandStory.map(story =>
-          <BrandStory key={story.imgUrl} story={story} />
+          <BrandStory key={story.imgUrl}>
+            <StoryImg>
+              <img src={require(`../images/brandStory_${story.imgUrl}.jpg`)} alt={story.imgUrl} />
+            </StoryImg>
+            <Col>
+              <h4>{story.title}</h4>
+              <p>{story.overview}</p>
+            </Col>
+          </BrandStory>
         )}
-      </SessionCover>
+      </SectionCover>
     </Wrapper>
   );
 }

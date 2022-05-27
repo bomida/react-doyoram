@@ -6,16 +6,25 @@ import { addItem, adjustItemQty } from "../redux/cart/cartAction";
 
 const Wrapper = styled.div`
   max-width: 1096px;
-  min-width: 900px;
+  width: 100%;
   height: 100%;
   margin: 0 auto;
   padding: 160px 50px 60px;
+
+  ${({ theme }) => theme.mobile`
+    padding: 100px 20px 60px;
+  `};
 `;
 
 const InfoRow = styled.div`
   display: grid;
-  gap: 0 20px;
   grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  
+  ${({ theme }) => theme.mobile`
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px;
+  `};
 `;
 
 const Thumbnail = styled.div`
@@ -29,8 +38,11 @@ const TextInfo = styled.div`
 `;
 
 const Title = styled.h3`
-  font-size: 40px;
+  font-size: ${props => props.theme.font.size.title};
   font-weight: 700;
+  ${({ theme }) => theme.mobile`
+    font-size: ${props => props.theme.font.size.xl};
+  `};
 `;
 
 const Price = styled.p`

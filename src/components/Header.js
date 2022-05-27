@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import NavToggle from "./NavToggle";
 
 const Nav = styled.header`
   display: flex;
@@ -13,6 +14,10 @@ const Nav = styled.header`
   padding: 20px 60px;
   background-color: ${props => props.theme.color.white.lighter};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+
+  ${({ theme }) => theme.mobile`
+    padding: 20px;
+  `};
 `;
 
 const Logo = styled.h1`
@@ -37,6 +42,9 @@ const RightMenu = styled.ul`
       color: ${props => props.theme.color.main};
     }
   }
+  ${({ theme }) => theme.mobile`
+    right: 20px;
+  `};
 `;
 
 const CartNumber = styled.span`
@@ -61,6 +69,7 @@ function Header({ cart }) {
   }, [cart, setCartCount]);
   return (
     <Nav>
+      <NavToggle />
       <Logo><Link to="/react-doyoram">DOYORAM</Link></Logo>
       <RightMenu>
         <li><Link to="signup">Signup</Link></li>

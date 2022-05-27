@@ -9,7 +9,7 @@ const font = {
     lg: "1.2rem",
     xl: "1.5rem",
     title: "2.5rem",
-    banner: "6.25rem",
+    banner: "10vw",
   }
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -6,15 +6,9 @@ import CartItem from "../components/CartItem";
 
 const Wrapper = styled.div`
   height: 100vh;
-  padding: 0 40px;
 
-  ${({ theme }) => theme.tablet`
+  ${({ theme }) => theme.mobile`
     height: 100%;
-    padding: 0 40px;
-  `};
-
-  ${({ theme }) => theme.tablet`
-    padding: 0 20px;
   `};
 `;
 
@@ -26,10 +20,6 @@ const ListContainer = styled.div`
   tr:last-of-type {
     border-bottom: 1px solid ${props => props.theme.color.black.darker};
   }
-
-  ${({ theme }) => theme.tablet`
-    margin: 100px auto 0;
-  `};
 `;
 
 const Title = styled.h3`
@@ -38,61 +28,41 @@ const Title = styled.h3`
   font-size: ${props => props.theme.font.size.title};
   font-weight: 700;
   text-align: center;
-
-  ${({ theme }) => theme.tablet`
-    margin-bottom: 20px;
-    font-size: ${props => props.theme.font.size.xl};
-  `};
 `;
 
-const CartTable = styled.table`
-  width: 100%;
-  border-bottom: 1px solid ${props => props.theme.color.black.darker};
-`;
+const ItemsCover = styled.div``;
 
-const CartHeader = styled.tr`
+const CartHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 40px;
-  font-size: ${props => props.theme.font.size.sm};
+  padding: 0 60px;
   border-bottom: 1px solid ${props => props.theme.color.black.darker};
-  td {
-    vertical-align: middle;
-    text-align: center;
-    &:nth-child(2) {
-    }
-  }
-
-  ${({ theme }) => theme.tablet`
-  `};
 `;
 
 const OrderTotal = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
-  
-  ${({ theme }) => theme.tablet`
-    flex-direction: column;
-  `};
+  background-color: greenyellow;
 `;
 
 const CheckContainer = styled.div`
   display: flex;
   align-items: center;
-  
-  ${({ theme }) => theme.tablet`
-    justify-content: flex-end;
-    width: 100%;
-  `};
+  padding-left: 30px;
 `;
 
 const SelectCount = styled.span`
-  /* margin-left: 26px;
-  margin-right: 41px; */
+  margin-left: 26px;
+  margin-right: 41px;
 `;
 
-const SelectCancleBtn = styled.button`
+const CancleBtn = styled.button`
   all: unset;
-  padding: 12px 24px;
+  width: 110px;
+  height: 40px;
   margin-left: 40px;
   color: ${props => props.theme.color.white.lighter};
   font-weight: bold;
@@ -103,10 +73,6 @@ const SelectCancleBtn = styled.button`
     &:hover {
       border-radius: 30px;
     }
-
-  ${({ theme }) => theme.tablet`
-    margin-left: 20px;
-  `};
 `;
 
 const TotalPrice = styled.div`
@@ -114,28 +80,16 @@ const TotalPrice = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 480px;
+  padding: 0 40px 0 51px;
   border-bottom: 1px solid ${props => props.theme.color.black.darker};
   span {
+    &:first-of-type {
+    }
     &:last-of-type {
       font-weight: bold;
       font-size: ${props => props.theme.font.size.xl};
     }
   }
-
-  ${({ theme }) => theme.tablet`
-    justify-content: flex-end;
-    width: 100%;
-    margin-top: 30px;
-    border-bottom: none;
-    span {
-      &:nth-child(2) {
-        margin: 0 20px;
-      }
-    }
-  `};
-  ${({ theme }) => theme.tablet`
-    margin-top: 20px;
-  `};
 `;
 
 const OrderBtnContainer = styled.div`
@@ -143,7 +97,8 @@ const OrderBtnContainer = styled.div`
   text-align: right;
   button {
     all: unset;
-    padding: 12px 24px;
+    /* margin: 20px auto 0; */
+    padding: 12px 30px;
     cursor: pointer;
     color: ${props => props.theme.color.main};
     border: 1px solid ${props => props.theme.color.main};
@@ -155,10 +110,6 @@ const OrderBtnContainer = styled.div`
       border-radius: 30px;
     }
   }
-
-  ${({ theme }) => theme.tablet`
-    margin-bottom: 60px;
-  `};
 `;
 
 function Cart({ cart }) {
@@ -190,35 +141,23 @@ function Cart({ cart }) {
     <Wrapper>
       <ListContainer>
         <Title>Cart</Title>
-        <CartTable>
-          <tbody>
-            <CartHeader>
-              <td>
-                <input type="checkbox" />
-              </td>
-              <td>
-                <span>전체 선택 0/{cart.length}</span>
-              </td>
-              <td>
-                <span>상품정보</span>
-              </td>
-              <td>
-                <span>수량</span>
-              </td>
-              <td>
-                <span>상품금액</span>
-              </td>
-              <td />
-            </CartHeader>
-            {cart.map(item =>
-              <CartItem key={item.id} itemData={item} />
-            )}
-          </tbody>
-        </CartTable>
+        <ItemsCover>
+          <CartHeader>
+            <input type="checkbox" />
+            <span>전체 선택 0/{cart.length}</span>
+            <span>상품정보</span>
+            <span>수량</span>
+            <span>상품금액</span>
+
+          </CartHeader>
+          {cart.map(item =>
+            <CartItem key={item.id} itemData={item} />
+          )}
+        </ItemsCover>
         <OrderTotal>
           <CheckContainer>
             <SelectCount>전체선택 0/{cart.length}</SelectCount>
-            <SelectCancleBtn>선택 취소</SelectCancleBtn>
+            <CancleBtn>선택 취소</CancleBtn>
           </CheckContainer>
           <TotalPrice>
             <span>Total Price</span>

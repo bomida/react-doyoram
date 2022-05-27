@@ -16,6 +16,16 @@ const Item = styled.tr`
       padding-left: 29px;
     }
   }
+
+  ${({ theme }) => theme.tablet`
+    td {
+      padding: 10px 0;
+      &:first-of-type {
+        width: 20px;
+        padding-left: 0px;
+      }
+    }
+`};
 `;
 
 const CheckColumn = styled.td`
@@ -24,11 +34,15 @@ const CheckColumn = styled.td`
 
 const ImgColumn = styled.td`
   width: 180px;
+
+  ${({ theme }) => theme.tablet`
+    width: 80px;
+  `};
 `;
 
 const Img = styled.img`
   width: 56px;
-  height: 56px;
+  aspect-ratio: 1/1;
 `;
 
 const ProductInfo = styled.td`
@@ -39,25 +53,45 @@ const ProductInfo = styled.td`
     &:first-of-type {
       margin-bottom: 8px;
       font-weight: bold;
-      font-size: 18px;
+      font-size: ${props => props.theme.font.size.lg};
     }
     &:last-of-type {
       font-size: 15px;
     }
   }
+
+  ${({ theme }) => theme.tablet`
+    p {
+      padding-left: 0px;
+      &:first-of-type {
+        margin-bottom: 0px;
+        min-width: 100px;
+        font-size: ${props => props.theme.font.size.base};
+      }
+      &:last-of-type {
+        display: none;
+      }
+    }
+  `};
 `;
 
 const Qty = styled.input`
   width: 40px;
   margin-left: 5px;
+
+  ${({ theme }) => theme.tablet`
+    width: 30px;
+    margin: 0 10px;
+  `};
 `;
 
 const DeleteCircle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
   cursor: pointer;
   border: 1px solid ${props => props.theme.color.black.lighter};
   border-radius: 50%;
@@ -87,7 +121,7 @@ function CartItem({ itemData, deleteItem, adjustItemQty }) {
       </ImgColumn>
       <ProductInfo>
         <p><Link to={`/react-doyoram/${itemData.id}`}>{itemData.title}</Link></p>
-        <p>{itemData.price.toLocaleString()} won</p>
+        <p>{itemData.price.toLocaleString()} ₩</p>
       </ProductInfo>
       <td>
         <label htmlFor="qty">수량</label>
@@ -100,7 +134,7 @@ function CartItem({ itemData, deleteItem, adjustItemQty }) {
           onChange={onChangeHandler}
         />
       </td>
-      <td>{totalPrice.toLocaleString()} won</td>
+      <td>{totalPrice.toLocaleString()} ₩</td>
       <td>
         <DeleteCircle onClick={() => deleteItem(itemData.id)}>
           <DeleteIcon />

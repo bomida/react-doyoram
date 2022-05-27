@@ -19,10 +19,15 @@ const FormCover = styled.div`
   h3 {
     margin-bottom: 50px;
     font-family: ${props => props.theme.font.family.serif};
-    font-size: 40px;
+    font-size: ${props => props.theme.font.size.title};
     font-weight: 700;
     text-align: center;
   }
+  ${({ theme }) => theme.mobile`
+    h3 {
+      font-size: ${props => props.theme.font.size.xl};
+    }
+  `};
 `;
 
 const Form = styled.form`
@@ -47,7 +52,6 @@ const Form = styled.form`
 `;
 
 const Title = styled.h4`
-  font-size: 15px;
   font-weight: 700;
   color: ${props => props.theme.color.black.normal};
 `;
@@ -69,7 +73,7 @@ const Input = styled.input`
 `;
 
 const WarningMsg = styled.p`
-  font-size: 13px;
+  font-size: ${props => props.theme.font.size.sm};
   padding: 7px;
   color: ${props => props.theme.color.white.lighter};
   border-radius: 30px;
