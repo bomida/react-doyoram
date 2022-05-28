@@ -52,7 +52,6 @@ const RightMenu = styled.ul`
   }
   ${({ theme }) => theme.tablet`
       display: ${props => props.toggleMenu ? "flex" : "none"};
-      // display: flex;
       flex-direction: column;
       position: relative;
       right: 0;
@@ -97,6 +96,9 @@ const ToggleBtn = styled.div`
     display: block;
     position: absolute;
     top: 20px;
+    right: 30px;
+  `};
+  ${({ theme }) => theme.mobile`
     right: 20px;
   `};
 `;

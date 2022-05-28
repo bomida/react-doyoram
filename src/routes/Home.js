@@ -43,7 +43,7 @@ const SectionCover = styled.section`
   padding: 120px 40px 0;
 
   ${({ theme }) => theme.tablet`
-    padding: 80px 40px 0;
+    padding: 80px 30px 0;
   `};
 
   ${({ theme }) => theme.mobile`
@@ -186,9 +186,12 @@ const ToTheTop = styled(motion.span)`
   background-color: rgba(255, 255, 255, 0.8);
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
   
-  ${({ theme }) => theme.mobile`
+  ${({ theme }) => theme.tablet`
     right: 30px;
     bottom: 30px;
+  `};
+  ${({ theme }) => theme.mobile`
+    right: 20px;
   `};
 `;
 
