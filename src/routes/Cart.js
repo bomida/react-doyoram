@@ -60,8 +60,13 @@ const CartHeader = styled.tr`
     &:nth-child(2) {
     }
   }
-
-  ${({ theme }) => theme.tablet`
+  
+  ${({ theme }) => theme.mobile`
+    height: 0;
+    td {
+      display: none;
+    }
+    font-size: ${props => props.theme.font.size.sm};
   `};
 `;
 
@@ -103,9 +108,11 @@ const SelectCancleBtn = styled.button`
     &:hover {
       border-radius: 30px;
     }
-
+    
   ${({ theme }) => theme.tablet`
     margin-left: 20px;
+    padding: 8px 18px;
+
   `};
 `;
 
@@ -118,7 +125,7 @@ const TotalPrice = styled.div`
   span {
     &:last-of-type {
       font-weight: bold;
-      font-size: ${props => props.theme.font.size.xl};
+      font-size: ${props => props.theme.font.size.lg};
     }
   }
 
@@ -158,7 +165,12 @@ const OrderBtnContainer = styled.div`
 
   ${({ theme }) => theme.tablet`
     margin-bottom: 60px;
-  `};
+    text-align: center;
+    button {
+      width: 100%;
+      padding: 10px 0;
+    }
+`};
 `;
 
 function Cart({ cart }) {
